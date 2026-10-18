@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Heart, Mail, User, Users, Coffee, Sparkles } from 'lucide-react';
 import { submitToGoogleSheets } from '@/lib/googleSheets';
+import Monogram from '@/components/Monogram';
 
 export default function RSVPSection({ guestName }: { guestName?: string }) {
   const { ref, inView } = useInView({ threshold: 0.15, triggerOnce: true });
@@ -59,7 +60,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 sm:px-6 lg:px-8 py-24 md:py-32"
+      className="relative overflow-hidden bg-ivory-card px-4 sm:px-6 lg:px-8 py-24 md:py-32"
     >
       {/* Premium Ambient Backdrop */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -77,7 +78,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
           className="absolute inset-0 opacity-[0.16]"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 10px 10px, rgba(188,125,83,0.38) 1px, transparent 1px)',
+              'radial-gradient(circle at 10px 10px, rgba(154,125,95,0.35) 1px, transparent 1px)',
             backgroundSize: '34px 34px',
           }}
         />
@@ -96,32 +97,28 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
           <motion.div
             whileHover={{ scale: 1.08, rotate: -5 }}
             transition={{ type: "spring", bounce: 0.6 }}
-            className="relative mx-auto mb-8 w-32 h-32 md:w-44 md:h-44 rounded-full border-8 border-white bg-white shadow-[0_20px_42px_rgba(189,126,86,0.3)] p-[2px] z-10 block"
+            className="relative mx-auto mb-8 w-32 h-32 md:w-44 md:h-44 rounded-full border-8 border-[#fbf8f1] bg-champagne shadow-[0_20px_42px_rgba(74,54,38,0.25)] p-[2px] z-10 block"
           >
-            <div className="relative flex h-full w-full items-center justify-center rounded-full bg-white overflow-hidden">
-              <img
-                src="/Screenshot 2026-05-08 031308.png"
-                alt="Monogram"
-                className="w-full h-full object-contain p-2"
-              />
+            <div className="relative flex h-full w-full items-center justify-center rounded-full overflow-hidden">
+              <Monogram className="w-[70%]" />
             </div>
 
             {/* Tiny floating decorative elements around the image */}
-            <Sparkles className="absolute -top-2 -right-4 h-8 w-8 text-[#d28a63] animate-pulse" />
-            <Sparkles className="absolute -bottom-4 -left-2 h-6 w-6 text-[#b79bde] animate-pulse" />
+            <Sparkles className="absolute -top-2 -right-4 h-8 w-8 text-[#b08a3e] animate-pulse" />
+            <Sparkles className="absolute -bottom-4 -left-2 h-6 w-6 text-[#d4ad4f] animate-pulse" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.05, rotate: 2 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#dcb08a]/45 bg-white/70 px-5 py-2.5 shadow-[0_10px_30px_rgba(197,135,95,0.18)] backdrop-blur-md"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#9a7d5f]/40 bg-white/70 px-5 py-2.5 shadow-[0_10px_30px_rgba(122,90,60,0.15)] backdrop-blur-md"
           >
-            <Mail className="h-5 w-5 text-[#bf7752]" />
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#bf7752]">
+            <Mail className="h-5 w-5 text-[#7a5a3c]" />
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#7a5a3c]">
               RSVP
             </span>
           </motion.div>
 
-          <h2 className="font-serif text-5xl font-medium tracking-tight text-foreground md:text-7xl">
-            You are <span className="relative inline-block text-primary">
+          <h2 className="font-display text-4xl tracking-tight text-[#5a4330] md:text-6xl">
+            You are <span className="relative inline-block font-script normal-case text-6xl md:text-8xl text-[#b08a3e]">
               Invited
               <motion.svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full"
                 viewBox="0 0 100 20" preserveAspectRatio="none"
@@ -132,16 +129,20 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                 <motion.path
                   d="M0 10 Q 25 20, 50 10 T 100 10"
                   fill="none"
-                  stroke="#d79b73"
+                  stroke="#b08a3e"
                   strokeWidth="4"
                   strokeLinecap="round"
                 />
               </motion.svg>
             </span>
           </h2>
-          <p className="mx-auto mt-8 max-w-lg text-lg text-[#7b6259] leading-relaxed">
-            Please respond by 10.07.2026. <br />
-            <span className="font-bold text-[#bf7752]">Ravindu | Nipuni</span>
+          <p className="mx-auto mt-8 max-w-lg text-lg text-[#7a5a3c] leading-relaxed">
+            Kindly RSVP below, or call us. <br />
+            <span className="mt-2 flex flex-col items-center gap-1 font-display text-sm tracking-[0.06em] text-[#7a5a3c] sm:flex-row sm:justify-center sm:gap-0">
+              <span>SANDUNI - <a href="tel:+94779237930" className="hover:underline">077 923 7930</a></span>
+              <span className="mx-3 hidden sm:inline">|</span>
+              <span>WARUNA - <a href="tel:+94764282331" className="hover:underline">076 428 2331</a></span>
+            </span>
           </p>
         </motion.div>
 
@@ -155,19 +156,13 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
           {/* Animated Background Envelope Flap Shape */}
           <div className="absolute -top-10 left-1/2 h-32 w-[90%] -translate-x-1/2 rounded-[2rem] bg-white/30 blur-md pointer-events-none" />
 
-          <div className="relative overflow-hidden rounded-[3rem] border border-secondary/25 bg-white p-6 md:p-12 shadow-[0_20px_55px_rgba(181,197,122,0.15)] backdrop-blur-2xl">
-            {/* Corner Decor */}
-            <div className="absolute top-0 right-0 w-32 h-32 md:w-56 md:h-56 pointer-events-none z-0 opacity-95">
-              <img src="/images/44.png" alt="" className="w-full h-full object-contain object-top-right" />
-            </div>
-            <div className="absolute bottom-0 left-0 w-24 h-[250px] md:w-56 md:h-[450px] pointer-events-none z-0 opacity-95">
-              <img src="/images/f.png" alt="" className="w-full h-full object-contain object-bottom-left" />
-            </div>
+          <div className="relative overflow-hidden rounded-[4px] border border-[#9a7d5f]/30 bg-[#fdfbf6] p-6 md:p-12 shadow-[0_20px_55px_rgba(74,54,38,0.12)] backdrop-blur-2xl">
+            <div className="pointer-events-none absolute inset-3 border border-[#9a7d5f]/30" />
 
 
             {/* Cute internal accents */}
-            <div className="absolute left-[-20%] top-[-20%] h-[300px] w-[300px] rounded-full bg-[#f2c59d]/25 blur-[60px]" />
-            <div className="absolute right-[-20%] bottom-[-20%] h-[300px] w-[300px] rounded-full bg-[#cfbfec]/25 blur-[60px]" />
+            <div className="absolute left-[-20%] top-[-20%] h-[300px] w-[300px] rounded-full bg-[#e6d6a8]/25 blur-[60px]" />
+            <div className="absolute right-[-20%] bottom-[-20%] h-[300px] w-[300px] rounded-full bg-[#d8d1bf]/30 blur-[60px]" />
 
             <AnimatePresence mode="wait">
               {!submitted ? (
@@ -183,7 +178,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                   <div className="grid grid-cols-1 gap-8">
                     {/* Name Input */}
                     <div className="group relative">
-                      <label className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#c07a54]">
+                      <label className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#7a5a3c]">
                         <User className="h-4 w-4" /> Full Name
                       </label>
                       <input
@@ -193,7 +188,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                         onChange={handleChange}
                         required
                         placeholder="John & Jane Doe"
-                        className="w-full rounded-2xl border border-[#efdcc9] bg-white/65 px-5 py-4 text-[#4a3b3c] placeholder-[#d5ab90]/70 outline-none transition-all duration-300 focus:border-[#c07a54] focus:bg-white focus:shadow-[0_10px_20px_rgba(192,122,84,0.12)] group-hover:bg-white/90"
+                        className="w-full rounded-2xl border border-[#ddd0b8] bg-white/65 px-5 py-4 text-[#4a3626] placeholder-[#b9a88f]/70 outline-none transition-all duration-300 focus:border-[#b08a3e] focus:bg-white focus:shadow-[0_10px_20px_rgba(122,90,60,0.12)] group-hover:bg-white/90"
                       />
                     </div>
                   </div>
@@ -201,7 +196,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                   <div className="grid grid-cols-1 gap-8">
                     {/* Attending Select */}
                     <div className="group relative">
-                      <label className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#c07a54]">
+                      <label className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#7a5a3c]">
                         <Users className="h-4 w-4" /> Will you be attending?
                       </label>
                       <div className="relative">
@@ -209,12 +204,12 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                           name="attending"
                           value={formData.attending}
                           onChange={handleChange}
-                          className="w-full appearance-none rounded-2xl border border-[#efdcc9] bg-white/65 px-5 py-4 pr-12 text-[#4a3b3c] outline-none transition-all duration-300 focus:border-[#c07a54] focus:bg-white focus:shadow-[0_10px_20px_rgba(192,122,84,0.12)] group-hover:bg-white/90 cursor-pointer font-medium"
+                          className="w-full appearance-none rounded-2xl border border-[#ddd0b8] bg-white/65 px-5 py-4 pr-12 text-[#4a3626] outline-none transition-all duration-300 focus:border-[#b08a3e] focus:bg-white focus:shadow-[0_10px_20px_rgba(122,90,60,0.12)] group-hover:bg-white/90 cursor-pointer font-medium"
                         >
                           <option value="yes">Yes, I'll be there!</option>
                           <option value="no">Regretfully decline</option>
                         </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-5 flex items-center text-[#c07a54]">
+                        <div className="pointer-events-none absolute inset-y-0 right-5 flex items-center text-[#7a5a3c]">
                           <svg className="h-5 w-5 fill-current" viewBox="0 0 20 20">
                             <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                           </svg>
@@ -232,7 +227,7 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                       onHoverEnd={() => setIsHoveringSubmit(false)}
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-full bg-secondary px-12 py-5 text-white shadow-[0_10px_30px_rgba(181,197,122,0.38)] transition-all hover:bg-secondary/90 hover:shadow-[0_15px_40px_rgba(181,197,122,0.45)] border border-secondary"
+                      className="group relative inline-flex items-center justify-center gap-4 overflow-hidden rounded-[4px] bg-[#7a5a3c] px-12 py-5 text-[#fbf3dc] shadow-[0_10px_30px_rgba(74,54,38,0.3)] transition-all hover:bg-[#6a4d33] hover:shadow-[0_15px_40px_rgba(74,54,38,0.4)] border border-[#7a5a3c]"
                     >
                       <span className="relative z-10 font-bold tracking-[0.2em] uppercase text-sm">
                         {isSubmitting ? 'Sending...' : 'Send RSVP'}
@@ -273,14 +268,14 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
                       rotate: [0, 10, -10, 0]
                     }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_rgba(191,119,82,0.28)]"
+                    className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-[0_10px_30px_rgba(122,90,60,0.25)]"
                   >
-                    <Heart className="h-12 w-12 text-[#bf7752] fill-[#bf7752]" />
+                    <Heart className="h-12 w-12 text-[#b08a3e] fill-[#b08a3e]" />
                   </motion.div>
-                  <h3 className="font-serif text-4xl font-medium text-[#4a3b3c] mb-4">
+                  <h3 className="font-script text-5xl text-[#7a5a3c] mb-4">
                     Yay! We got it
                   </h3>
-                  <p className="max-w-md text-lg text-[#7b6259]">
+                  <p className="max-w-md text-lg text-[#7a5a3c]">
                     Thank you so much for confirming, {formData.name || 'dear guest'}! We are so excited to celebrate with you.
                   </p>
                 </motion.div>
@@ -288,10 +283,10 @@ export default function RSVPSection({ guestName }: { guestName?: string }) {
             </AnimatePresence>
 
             {/* Corner cute dots */}
-            <div className="absolute left-6 top-6 h-2 w-2 rounded-full bg-[#e2b48f]" />
-            <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-[#c6b6e8]" />
-            <div className="absolute left-6 bottom-6 h-2 w-2 rounded-full bg-[#c6b6e8]" />
-            <div className="absolute right-6 bottom-6 h-2 w-2 rounded-full bg-[#e2b48f]" />
+            <div className="absolute left-6 top-6 h-2 w-2 rounded-full bg-[#b08a3e]" />
+            <div className="absolute right-6 top-6 h-2 w-2 rounded-full bg-[#9a7d5f]" />
+            <div className="absolute left-6 bottom-6 h-2 w-2 rounded-full bg-[#9a7d5f]" />
+            <div className="absolute right-6 bottom-6 h-2 w-2 rounded-full bg-[#b08a3e]" />
           </div>
         </motion.div>
       </div>

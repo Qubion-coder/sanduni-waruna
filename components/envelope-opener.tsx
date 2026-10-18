@@ -55,7 +55,7 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
           className="fixed inset-0 z-50 overflow-hidden"
         >
           {/* Lighter Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,183,140,0.15),transparent_40%),linear-gradient(135deg,#faf9f6_0%,#f5f3ef_38%,#fdfcfb_65%,#faf9f6_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(216,183,140,0.15),transparent_40%),linear-gradient(135deg,#f7f3ea_0%,#efe9dc_38%,#f9f6ef_65%,#f3eee2_100%)]" />
 
           {/* Soft ambient glow */}
           <motion.div
@@ -180,13 +180,13 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
             >
               <div className="mb-4 flex items-center justify-center gap-4">
                 <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#d8b78c]/70" />
-                <p className="text-[9px] md:text-[11px] uppercase tracking-[0.5em] text-[#8c6a16]">
+                <p className="text-[9px] md:text-[11px] uppercase tracking-[0.5em] text-[#7a5a3c] font-display">
                   The Wedding Invitation
                 </p>
                 <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#d8b78c]/70" />
               </div>
-              <h1 className="font-script text-2xl md:text-6xl tracking-[0.05em] text-[#8c6a16] capitalize">
-                Nipuni <span className="text-secondary/80">&amp;</span> Ravindu
+              <h1 className="font-names text-[2.75rem] leading-tight md:text-7xl text-[#7a5a3c]">
+                Sanduni <span className="font-script mx-1 text-[0.8em] text-[#b08a3e]">&amp;</span> Waruna
               </h1>
             </motion.div>
 
@@ -198,7 +198,7 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
               className="relative"
             >
               <motion.div
-                className="absolute -inset-8 -z-20 rounded-[3rem] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(181,197,122,0.0),rgba(181,197,122,0.2),rgba(181,197,122,0.0),rgba(181,197,122,0.18),rgba(181,197,122,0.0))] blur-2xl"
+                className="absolute -inset-8 -z-20 rounded-[3rem] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(212,173,79,0.0),rgba(212,173,79,0.2),rgba(212,173,79,0.0),rgba(212,173,79,0.18),rgba(212,173,79,0.0))] blur-2xl"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
               />
@@ -235,10 +235,23 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
                   className="relative z-10"
                 >
                   <img
-                    src="/ChatGPT_Image_May_8__2026__03_11_04_AM-removebg-preview.png"
-                    alt="Wedding Envelope"
-                    className="w-[450px] h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                    src="/photos/envelope.webp"
+                    alt="Wedding envelope with S & W monogram"
+                    className="w-[340px] sm:w-[440px] h-auto drop-shadow-[0_20px_40px_rgba(74,54,38,0.25)]"
                   />
+                  <div className="mt-2 flex w-full items-center justify-center gap-3 font-display text-[#5a4330]">
+                    <div className="flex flex-col items-center">
+                      <span className="h-px w-20 bg-[#7a5a3c]/50" />
+                      <span className="py-1 text-[11px] sm:text-[13px] tracking-[0.12em]">DECEMBER</span>
+                      <span className="h-px w-20 bg-[#7a5a3c]/50" />
+                    </div>
+                    <span className="text-3xl sm:text-4xl">12</span>
+                    <div className="flex flex-col items-center">
+                      <span className="h-px w-16 bg-[#7a5a3c]/50" />
+                      <span className="py-1 text-[11px] sm:text-[13px] tracking-[0.12em]">2026</span>
+                      <span className="h-px w-16 bg-[#7a5a3c]/50" />
+                    </div>
+                  </div>
                 </motion.div>
 
               </motion.button>
@@ -248,7 +261,7 @@ export function EnvelopeOpener({ onEnvelopeOpen, guestName }: EnvelopeOpenerProp
                 initial={{ opacity: 0, y: 10 }}
                 animate={!isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -6 }}
                 transition={{ duration: 0.4 }}
-                className="mt-6 text-center text-[11px] uppercase tracking-[0.45em] text-[#8c6a16]/80"
+                className="mt-8 text-center font-display text-[11px] uppercase tracking-[0.45em] text-[#7a5a3c]/80"
               >
                 Touch to Unveil
               </motion.p>

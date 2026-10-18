@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Clock3, MapPin, Sparkles, Crown, Heart, Cross } from 'lucide-react';
-import Image from 'next/image';
+import Monogram from '@/components/Monogram';
 
 export default function CeremonyDetails() {
   const { ref, inView } = useInView({
@@ -16,37 +16,29 @@ export default function CeremonyDetails() {
       key: 'poruwa',
       title: 'Poruwa Ceremony',
       timeLabel: 'Ceremony Time',
-      timeValue: '8:30 AM',
+      timeValue: '8.00 AM',
       timeSub: 'Traditional Sri Lankan Ceremony',
       venueLabel: 'Venue',
-      venueValue: 'OUTDOOR DECK, WATERS EDGE',
-      venueSub: '316, ETHUL KOTTE RD, BATTARAMULLA',
+      venueValue: 'OUTDOOR',
+      venueSub: 'SEA GATES HOTEL, KALUTHARA',
     },
     {
       key: 'reception',
       title: 'Wedding Reception',
       timeLabel: 'Reception Time',
-      timeValue: '10:00 AM - 4:00 PM',
-      timeSub: 'Grand Celebration & Dining',
+      timeValue: '10.30 AM - 4.00 PM',
+      timeSub: 'Saturday, December 12th 2026',
       venueLabel: 'Venue',
-      venueValue: 'GRAND BALLROOM, WATERS EDGE',
-      venueSub: '316, ETHUL KOTTE RD, BATTARAMULLA',
+      venueValue: 'WHITE SAND BALLROOM',
+      venueSub: 'SEA GATES HOTEL, KALUTHARA',
     },
   ];
 
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 sm:px-6 lg:px-8 py-24 md:py-32"
+      className="relative overflow-hidden bg-ivory-card px-4 sm:px-6 lg:px-8 py-24 md:py-32"
     >
-      {/* Corner Decor */}
-      <div className="absolute top-0 right-0 w-40 h-40 md:w-72 md:h-72 pointer-events-none z-0 opacity-95">
-        <img src="/images/44.png" alt="" className="w-full h-full object-contain object-top-right" />
-      </div>
-      <div className="absolute bottom-0 left-0 w-32 h-[400px] md:w-64 md:h-[600px] pointer-events-none z-0 opacity-95">
-        <img src="/images/f.png" alt="" className="w-full h-full object-contain object-bottom-left" />
-      </div>
-
       {/* Background Ornaments */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-0 top-0 h-full w-full opacity-[0.05]"
@@ -65,16 +57,16 @@ export default function CeremonyDetails() {
           >
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-secondary/30 bg-secondary/5 px-5 py-2 backdrop-blur-sm">
               <Sparkles className="h-4 w-4 text-secondary" />
-              <span className="text-xs uppercase tracking-[0.3em] text-secondary font-bold">
+              <span className="text-xs uppercase tracking-[0.3em] text-secondary font-display">
                 The Sacred Celebration
               </span>
             </div>
 
-            <h2 className="mb-6 font-serif text-5xl font-light leading-tight text-foreground md:text-7xl">
-              Wedding <span className="italic text-primary">Ceremony</span>
+            <h2 className="mb-6 font-display text-4xl leading-tight text-[#5a4330] md:text-6xl">
+              Wedding <span className="font-script normal-case text-6xl md:text-8xl text-[#b08a3e]">Ceremony</span>
             </h2>
 
-            <p className="mb-12 text-lg leading-relaxed text-foreground/70 max-w-2xl px-4">
+            <p className="mb-20 md:mb-24 text-lg leading-relaxed text-foreground/70 max-w-2xl px-4">
               With immense joy in our hearts, we invite you to share our happiness as we exchange our vows. Join us for a beautiful celebration of faith, love, and lifelong commitment.
             </p>
 
@@ -86,8 +78,26 @@ export default function CeremonyDetails() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    className="group relative overflow-hidden rounded-[2.5rem] border border-secondary/20 bg-white p-8 md:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.03)] transition-all"
+                    className="relative"
                   >
+                    {/* Envelope bouquets tucked behind the card corners (their cut edges sit under the card) */}
+                    {index === 0 && (
+                      <img
+                        src="/photos/flowers-tl.webp"
+                        alt=""
+                        aria-hidden="true"
+                        className="pointer-events-none absolute left-0 top-0 z-0 w-36 md:w-52 max-w-none -translate-x-[30.3%] -translate-y-[46.9%]"
+                      />
+                    )}
+                    {index === detailGroups.length - 1 && (
+                      <img
+                        src="/photos/flowers-br.webp"
+                        alt=""
+                        aria-hidden="true"
+                        className="pointer-events-none absolute left-full top-full z-0 w-36 md:w-52 max-w-none -translate-x-[66.7%] -translate-y-[73.6%]"
+                      />
+                    )}
+                  <div className="group relative z-10 overflow-hidden rounded-[4px] border border-[#9a7d5f]/30 bg-[#fdfbf6] p-8 md:p-10 shadow-[0_15px_45px_rgba(74,54,38,0.08)] transition-all">
                     <div className="mb-6">
                       <p className="text-xs uppercase tracking-[0.3em] text-secondary/70 font-bold">{group.title} Details</p>
                     </div>
@@ -99,7 +109,7 @@ export default function CeremonyDetails() {
                         </div>
                         <div>
                           <p className="text-xs uppercase tracking-[0.25em] text-secondary font-bold mb-1">{group.timeLabel}</p>
-                          <h3 className="font-serif text-2xl text-foreground font-semibold">{group.timeValue}</h3>
+                          <h3 className="font-display text-xl md:text-2xl text-[#4a3626] font-semibold">{group.timeValue}</h3>
                           <p className="text-sm text-foreground/60 mt-1">{group.timeSub}</p>
                         </div>
                       </div>
@@ -110,11 +120,12 @@ export default function CeremonyDetails() {
                         </div>
                         <div>
                           <p className="text-xs uppercase tracking-[0.25em] text-secondary font-bold mb-1">{group.venueLabel}</p>
-                          <h3 className="font-serif text-2xl text-foreground font-semibold line-clamp-2">{group.venueValue}</h3>
+                          <h3 className="font-display text-xl md:text-2xl text-[#4a3626] font-semibold line-clamp-2">{group.venueValue}</h3>
                           <p className="text-sm text-foreground/60 mt-1">{group.venueSub}</p>
                         </div>
                       </div>
                     </div>
+                  </div>
                   </motion.div>
                 );
               })}
@@ -123,14 +134,10 @@ export default function CeremonyDetails() {
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 1, delay: 0.6 }}
-                className="mt-6 overflow-hidden rounded-[2.5rem] border border-secondary/10 bg-secondary/5 p-8 shadow-sm backdrop-blur-lg relative"
+                className="mt-6 overflow-hidden rounded-[4px] border border-[#9a7d5f]/20 bg-[#efe8d9] p-8 shadow-sm backdrop-blur-lg relative"
               >
                 <div className="absolute right-0 top-0 opacity-15">
-                  <img
-                    src="/Screenshot 2026-05-08 031308.png"
-                    alt="Monogram"
-                    className="w-32 h-32 -mt-8 -mr-8 object-contain"
-                  />
+                  <Monogram tone="ink" className="w-36 -mt-2 -mr-6" />
                 </div>
 
                 <h4 className="text-xs uppercase tracking-widest text-secondary mb-4 font-bold flex items-center gap-2">

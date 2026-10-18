@@ -8,3 +8,5 @@ node_modules/
 .next/
 .env*.local
 .DS_Store
+# original full-size photo shoot files (site uses optimized copies in public/photos)
+public/pre/

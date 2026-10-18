@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, MapPin, Navigation, Sparkles } from 'lucide-react';
 
-const LOCATION_URL = 'https://www.google.com/maps/search/?api=1&query=Waters+Edge+Battaramulla+Sri+Lanka';
+const LOCATION_URL = 'https://www.google.com/maps/search/?api=1&query=Sea+Gates+Hotel+Kalutara+Sri+Lanka';
 
 export default function VenueLocation() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -12,7 +12,7 @@ export default function VenueLocation() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-white px-4 py-24 sm:px-6 lg:px-8 md:py-32"
+      className="relative overflow-hidden bg-ivory-card px-4 py-24 sm:px-6 lg:px-8 md:py-32"
     >
       {/* Atmosphere */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -24,13 +24,13 @@ export default function VenueLocation() {
         <motion.div
           animate={{ x: [0, -45, 0], y: [0, -45, 0], scale: [1, 1.18, 1] }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-          className="absolute -right-[10%] top-[34%] h-[44vw] w-[44vw] rounded-full bg-gradient-to-tl from-[#eadcff] to-[#ffdfe9] opacity-60 blur-[110px]"
+          className="absolute -right-[10%] top-[34%] h-[44vw] w-[44vw] rounded-full bg-gradient-to-tl from-[#e9dfc6] to-[#f3ead6] opacity-60 blur-[110px]"
         />
         <div
           className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 11px 11px, rgba(181,124,83,0.38) 1px, transparent 1px)',
+              'radial-gradient(circle at 11px 11px, rgba(154,125,95,0.35) 1px, transparent 1px)',
             backgroundSize: '34px 34px',
           }}
         />
@@ -53,8 +53,8 @@ export default function VenueLocation() {
             </span>
           </motion.div>
 
-          <h2 className="font-serif text-4xl font-medium tracking-tight text-foreground sm:text-5xl md:text-7xl">
-            Venue <span className="relative inline-block text-primary">
+          <h2 className="font-display text-3xl tracking-tight text-[#5a4330] sm:text-5xl md:text-6xl">
+            Venue <span className="relative inline-block font-script normal-case text-5xl sm:text-7xl md:text-8xl text-[#b08a3e]">
               Location
               <motion.svg className="absolute -bottom-2 md:-bottom-4 left-0 w-full"
                 viewBox="0 0 100 20" preserveAspectRatio="none"
@@ -79,21 +79,21 @@ export default function VenueLocation() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="group relative bg-white/70 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-[0_15px_45px_rgba(0,0,0,0.05)] border-2 border-white text-center hover:shadow-xl transition-all duration-500"
+            className="group relative bg-champagne rounded-[4px] p-8 md:p-12 shadow-[0_20px_50px_rgba(74,54,38,0.18)] border border-[#9a7d5f]/20 text-center hover:shadow-xl transition-all duration-500"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-primary rounded-3xl flex items-center justify-center shadow-lg transform rotate-6 group-hover:rotate-12 transition-transform">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#b08a3e] rounded-full flex items-center justify-center shadow-lg transform rotate-6 group-hover:rotate-12 transition-transform">
               <MapPin className="h-10 w-10 text-white" />
             </div>
 
-            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.4em] text-primary/60 mb-3">Grand Ballroom</p>
-            <h3 className="font-serif text-4xl md:text-5xl text-foreground font-semibold mb-4 uppercase">WATERS EDGE</h3>
-            <p className="text-sm text-foreground/50 mb-10 uppercase tracking-[0.2em] leading-relaxed max-w-sm mx-auto">316, Ethul Kotte Rd, <br /> Battaramulla, Sri Lanka</p>
+            <p className="mt-6 font-script text-3xl md:text-4xl text-[#7a5a3c] mb-3">White Sand Ballroom</p>
+            <h3 className="font-display text-3xl md:text-5xl text-[#4a3626] font-semibold mb-4 uppercase">SEA GATES HOTEL</h3>
+            <p className="font-display text-sm text-[#7a5a3c] mb-10 uppercase tracking-[0.2em] leading-relaxed max-w-sm mx-auto">Kaluthara, Sri Lanka</p>
 
             <a
               href={LOCATION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-4 bg-primary text-white px-10 py-6 rounded-2xl text-[12px] font-bold uppercase tracking-[0.3em] shadow-[0_15px_35px_rgba(255,190,198,0.3)] hover:scale-[1.03] active:scale-95 transition-all lg:w-auto lg:px-16"
+              className="inline-flex w-full items-center justify-center gap-4 bg-[#7a5a3c] text-[#fbf3dc] px-10 py-6 rounded-[4px] font-display text-[12px] uppercase tracking-[0.3em] shadow-[0_15px_35px_rgba(74,54,38,0.3)] hover:scale-[1.03] active:scale-95 transition-all lg:w-auto lg:px-16"
             >
               Get Directions
               <Navigation className="h-5 w-5" />

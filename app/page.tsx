@@ -47,13 +47,14 @@ function HomeContent() {
           <ParentsSection />
 
           <CeremonyDetails />
-          <SimpleImageSection imageSrc="/1.jpeg" />
+          <SimpleImageSection imageSrc="/photos/couple-1.jpg" objectPosition="object-[center_80%]" />
           <CountdownSection />
-          <SimpleImageSection imageSrc="/2.jpeg" />
+          <SimpleImageSection imageSrc="/photos/couple-4.jpg" objectPosition="object-[center_75%]" />
 
           <VenueLocation />
+          <SimpleImageSection imageSrc="/photos/couple-2.jpg" objectPosition="object-[center_70%]" />
           <RSVPSection guestName={personalizedName} />
-          <SimpleImageSection imageSrc="/3.jpeg" objectPosition="object-bottom" useFullImage />
+          <SimpleImageSection imageSrc="/photos/couple-5.jpg" useFullImage />
           <BlessingsSection />
           <FooterSection />
         </>
@@ -64,7 +65,7 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center text-primary font-serif italic text-xl">Loading Invitation...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center text-[#7a5a3c] font-script text-3xl">Loading Invitation...</div>}>
       <HomeContent />
     </Suspense>
   );

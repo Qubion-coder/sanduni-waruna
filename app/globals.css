@@ -3,33 +3,33 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Premium Sri Lankan Kandyan Wedding Theme */
+/* Sanduni & Waruna — champagne, ivory & gold foil (from the printed invitation) */
 :root {
-  /* Primary Colors - Pink & Green Theme */
-  --theme-gold: #d8b78c;
-  --theme-gold-light: #d9d1c6;
-  --theme-sage: #9eaa94;
-  --theme-sage-muted: #9c9f98;
-  --theme-ivory: #e8e8e6;
+  --theme-gold: #b08a3e;          /* gold foil */
+  --theme-gold-light: #e6d6a8;
+  --theme-brown: #7a5a3c;         /* card lettering */
+  --theme-brown-muted: #9a7d5f;
+  --theme-champagne: #d8d1bf;     /* shimmer cover stock */
+  --theme-ivory: #f7f3ea;         /* inner card */
   --white: #FFFFFF;
-  --text-dark: #3a3b38;
-  --text-muted: #71736e;
-  --border-light: #d9d1c6;
-  
+  --text-dark: #4a3626;
+  --text-muted: #8a7258;
+  --border-light: #ddd0b8;
+
   /* Design System Mappings */
   --background: var(--theme-ivory);
   --foreground: var(--text-dark);
-  --card: #ffffff;
+  --card: #fdfbf6;
   --card-foreground: var(--text-dark);
   --popover: var(--white);
   --popover-foreground: var(--text-dark);
   --primary: var(--theme-gold);
   --primary-foreground: #ffffff;
-  --secondary: var(--theme-sage);
+  --secondary: var(--theme-brown);
   --secondary-foreground: #ffffff;
-  --muted: var(--theme-sage-muted);
-  --muted-foreground: var(--theme-gold-light);
-  --accent: var(--theme-gold-light);
+  --muted: var(--theme-brown-muted);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--theme-champagne);
   --accent-foreground: var(--text-dark);
   --destructive: #EF5350;
   --destructive-foreground: var(--white);
@@ -37,12 +37,18 @@
   --input: var(--white);
   --ring: var(--theme-gold);
   --radius: 0.75rem;
+
+  /* used by enhancements.css */
+  --gold: var(--theme-gold);
+  --light-gray: #b9a88f;
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback';
-  --font-serif: 'Playfair Display', 'Playfair Display Fallback';
-  --font-script: 'Pinyon Script', 'cursive';
+  --font-sans: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-display: var(--font-cinzel), Georgia, serif;
+  --font-script: var(--font-cormorant), Georgia, serif;
+  --font-names: var(--font-pinyon), cursive;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -75,6 +81,8 @@
   
   body {
     @apply bg-background text-foreground;
+    font-size: 1.0625rem;
+    font-weight: 500;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -130,6 +138,36 @@
   100% {
     background-position: 1000px 0;
   }
+}
+
+/* Champagne shimmer paper, like the invitation cover */
+.bg-champagne {
+  background-color: var(--theme-champagne);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.45), transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(255, 250, 235, 0.35), transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.97  0 0 0 0 0.9  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Elegant italic display for names & accents (Cormorant Garamond) */
+.font-script {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Ivory card stock */
+.bg-ivory-card {
+  background-color: #fbf8f1;
+  background-image: linear-gradient(160deg, #fdfbf7 0%, #f7f2e7 100%);
+}
+
+/* Gold foil text */
+.text-gold-foil {
+  background-image: linear-gradient(175deg, #f3e2a4 0%, #d4ad4f 35%, #a8812f 65%, #e2c879 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @keyframes glow {
