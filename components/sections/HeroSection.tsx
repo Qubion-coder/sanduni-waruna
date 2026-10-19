@@ -42,7 +42,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.15 }}
-          className="mt-6 font-names text-6xl sm:text-8xl md:text-9xl leading-[1.15] [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:text-5xl [@media(max-height:600px)]:mt-1! [@media(max-height:600px)]:text-[2.6rem]! text-[#4a3626]"
+          className="mt-6 whitespace-nowrap font-names text-[clamp(2.2rem,11vw,3.4rem)] sm:text-7xl md:text-8xl leading-[1.15] [@media(max-height:700px)]:mt-3 [@media(max-height:600px)]:mt-1! text-[#4a3626]"
         >
           Sanduni <span className="font-script mx-2 text-[0.8em] text-[#b08a3e]">&amp;</span> Waruna
         </motion.h1>
