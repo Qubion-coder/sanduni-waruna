@@ -86,16 +86,17 @@ function ParentsSectionContent() {
               initial={{ scale: 1.12 }}
               animate={inView ? { scale: 1 } : {}}
               transition={{ duration: 6, ease: 'easeOut' }}
-              className="absolute inset-0 h-full w-full object-cover object-[center_75%] opacity-[0.28] [filter:sepia(0.55)_saturate(0.7)_contrast(0.9)] mix-blend-multiply"
+              style={{ height: '100%' }}
+              className="absolute inset-0 h-full w-full object-cover object-[center_75%] opacity-[0.75] [filter:sepia(0.25)_saturate(0.85)]"
             />
             {/* ivory veil keeps the lettering crisp while the couple shows through */}
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,248,241,0.92)_0%,rgba(251,248,241,0.72)_45%,rgba(251,248,241,0.6)_70%,rgba(251,248,241,0.9)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,248,241,0.88)_0%,rgba(251,248,241,0.6)_40%,rgba(251,248,241,0.5)_70%,rgba(251,248,241,0.8)_100%)]" />
 
             {/* arched gold frames */}
-            <div className="pointer-events-none absolute inset-3 rounded-t-[999px] rounded-b-[3px] border border-[#b08a3e]/60" />
+            <div className="pointer-events-none absolute inset-3 rounded-t-[999px] rounded-b-[3px] border border-[#b08a3e]/80" />
             <div className="pointer-events-none absolute inset-[19px] rounded-t-[999px] rounded-b-[2px] border border-[#b08a3e]/25" />
 
-            <div className="relative z-10 flex flex-col items-center px-8 pb-14 pt-24 sm:px-12 sm:pt-28 text-center text-[#7a5a3c]">
+            <div className="relative z-10 flex flex-col items-center px-8 pb-14 pt-24 sm:px-12 sm:pt-28 text-center text-[#3f2c1e] [text-shadow:0_0_8px_rgba(251,248,241,0.95)]">
               {/* sprig ornament under the arch */}
               <motion.svg
                 viewBox="0 0 120 40"
@@ -117,21 +118,21 @@ function ParentsSectionContent() {
               </motion.svg>
 
               {[
-                <div key="parents" className="font-display text-[13px] sm:text-[15px] leading-loose tracking-[0.08em]">
+                <div key="parents" className="font-display text-[15px] sm:text-[17px] font-semibold leading-loose tracking-[0.08em]">
                   <p className="text-inherit">MR. &amp; MRS. GEETHANJANA</p>
-                  <p className="font-script normal-case text-2xl tracking-normal text-[#b08a3e]">together with</p>
+                  <p className="font-script normal-case text-[1.7rem] font-semibold tracking-normal text-[#8a6a2c]">together with</p>
                   <p className="text-inherit">MR. &amp; MRS. KIRIELLA</p>
                 </div>,
-                <p key="request" className="mt-6 font-display text-[11px] sm:text-[13px] tracking-[0.18em] text-inherit">
+                <p key="request" className="mt-6 font-display text-[13px] sm:text-[15px] font-semibold tracking-[0.14em] text-inherit">
                   REQUEST THE PLEASURE OF YOUR PRESENCE
                 </p>,
                 <div key="divider" className="my-6 w-full"><Divider /></div>,
-                <p key="celebrating" className="font-display text-[11px] sm:text-[13px] tracking-[0.18em] text-inherit">
+                <p key="celebrating" className="font-display text-[13px] sm:text-[15px] font-semibold tracking-[0.14em] text-inherit">
                   IN CELEBRATING THE MARRIAGE OF THEIR CHILDREN
                 </p>,
-                <h2 key="names" className="mt-5 font-names text-6xl sm:text-7xl leading-[1.1] text-[#6b4c32] drop-shadow-[0_1px_0_rgba(255,255,255,0.8)]">
+                <h2 key="names" className="mt-5 font-names text-6xl sm:text-7xl leading-[1.1] text-[#3f2c1e] drop-shadow-[0_0_10px_rgba(251,248,241,0.95)]">
                   Sanduni
-                  <span className="font-script block text-4xl sm:text-5xl text-gold-foil">&amp;</span>
+                  <span className="font-script block text-4xl sm:text-5xl font-semibold text-[#9a7430]">&amp;</span>
                   Waruna
                 </h2>,
               ].map((el, i) => (
